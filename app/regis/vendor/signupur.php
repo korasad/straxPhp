@@ -80,7 +80,7 @@ if ($pass === $password_conf) {
     
 
 
-    mysqli_query($link, "INSERT INTO `юр_лица`(`Legals_ID`, `название`, `инн`, `юр_адресс`, `телефон`, `email`, `пароль`) VALUES (NULL,'$organiz','$inn','$ur_ad','$tel','$ema','$pass')");
+    mysqli_query($link, "INSERT INTO `юр_лица`(`id `, `название`, `инн`, `юр_адресс`, `телефон`, `email`, `пароль`) VALUES (NULL,'$organiz','$inn','$ur_ad','$tel','$ema','$pass')");
 
     $response = [
         "status" => true,

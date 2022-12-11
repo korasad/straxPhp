@@ -37,7 +37,7 @@ if (mysqli_num_rows($check_user) > 0) {
     $user = mysqli_fetch_assoc($check_user);
 
     $_SESSION['user_ur'] = [
-        "id" => $user['Legals_ID'],
+        "id" => $user['id'],
         "organiz" => $user['название'],
         "inn" => $user['инн'],
         "ur_ad" => $user['юр_адресс'],

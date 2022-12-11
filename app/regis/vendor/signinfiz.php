@@ -37,7 +37,7 @@ if (mysqli_num_rows($check_us) > 0) {
     $user = mysqli_fetch_assoc($check_us);
 
     $_SESSION['user_fiz'] = [
-        "id " => $user['Individuals_ID '],
+        "id" => $user['id'],
         "fam" => $user['фамилия'],
         "nam" => $user['имя'],
         "och" => $user['отчество'],

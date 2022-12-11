@@ -28,13 +28,6 @@ require 'app/header.php';
                         <li><?=$yslug['Описание']?></li>
                         <p></p>
                         <li>Условия к документам: <?=$yslug['тип_документа']?></li>
-                        <div
-                            class='bzat'
-                            data-tip='<?=$yslug['тип_документа']?>'
-                            data-stoim='<?=$yslug['Стоимость']?>'
-                            data-nam='<?=$yslug['Название']?>'
-                            data-idi='<?=$yslug['Services_ID']?>'
-                          ></div>
                         </ul>
                         <button class="brat w-100 btn btn-lg btn-primary mb-3" type="submit">Взять</button>
                     </div>
@@ -46,8 +39,5 @@ require 'app/header.php';
     </div>
 </div>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
-<script src="/js/salvattore.min.js"></script>
-<script src="/app/yslug/yslugi.js"></script>
 
 <?php require 'app/footer.php'; ?>

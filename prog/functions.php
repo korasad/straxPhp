@@ -1,7 +1,7 @@
 <?php
 session_start();
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-//Услуги
+
 function get_yslugi(){
     global $link;
     $sql = "SELECT * FROM все_услуги";
@@ -10,7 +10,7 @@ function get_yslugi(){
     $yslugi = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $yslugi;
 }
-//Документы
+
 function get_doki(){
     $idd=$_SESSION['user_fiz']['id'];
     $id=$_SESSION['user_ur']['id'];
@@ -40,22 +40,23 @@ function get_doki(){
     
 }
 
-//Услуги
+
 function get_ysluga(){
     global $link;
     $idd=$_SESSION['user_fiz']['id'];
     $id=$_SESSION['user_ur']['id'];
     if ($idd>0)
     {
-        $sql = "SELECT * FROM усг_страхов WHERE individual = $idd";
-
+        //settype($idd, 'integer');
+        $sql = "SELECT * FROM усг_страхов WHERE individuals = $idd";
         $result = mysqli_query($link,$sql);
         $ysluga = mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $ysluga;
     }
     if ($id>0)
     {
-        $sql = "SELECT * FROM усг_страхов WHERE lega = $id";
+        //settype($id, 'int');
+        $sql = "SELECT * FROM усг_страхов WHERE legal = $id";
         $result = mysqli_query($link,$sql);
         $ysluga = mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $ysluga;

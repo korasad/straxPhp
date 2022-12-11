@@ -28,14 +28,14 @@
       </ul>
       <div class="col-md-3 text-end">
       <?php if ($_SESSION['user_fiz']['fam']): ?>
-        <button type="button" class="btn btn-primary" onclick="document.location='../profilefiz.php'">Профиль <?php echo $_SESSION['user_fiz']['fam']?> <?php echo $_SESSION['user_fiz']['nam'] ?> <?php echo $_SESSION['user_fiz']['och'] ?> 
+        <button type="button" class="btn btn-primary" onclick="document.location='/profilefiz.php'">Профиль <?php echo $_SESSION['user_fiz']['fam']?> <?php echo $_SESSION['user_fiz']['nam'] ?> <?php echo $_SESSION['user_fiz']['och'] ?> 
       </button>
       <?php elseif($_SESSION['user_ur']['ema']!=''): ?>
-        <button type="button" class="btn btn-primary" onclick="document.location='../profileur.php'">Профиль <?php echo $_SESSION['user_ur']['organiz']?> <?php echo $_SESSION['user_ur']['ema'] ?> 
+        <button type="button" class="btn btn-primary" onclick="document.location='/profileur.php'">Профиль <?php echo $_SESSION['user_ur']['organiz']?> <?php echo $_SESSION['user_ur']['ema'] ?> 
       </button>
       <?php else: ?>
-        <button type="button" class="btn btn-outline-primary me-2" onclick="document.location='../app/regis/auth.php'">Войти</button>
-        <button type="button" class="btn btn-primary" onclick="document.location='../app/regis/reg.php'">Регистрация</button>
+        <button type="button" class="btn btn-outline-primary me-2" onclick="document.location='/app/regis/auth.php'">Войти</button>
+        <button type="button" class="btn btn-primary" onclick="document.location='/app/regis/reg.php'">Регистрация</button>
       <?php endif ?>
       </div>
     </header>

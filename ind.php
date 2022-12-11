@@ -43,42 +43,43 @@
 
 
   <div class="container">
-  <div class="row">
+    <div class="row">
         <div class="col-md-9">
-  <form>
-    <h1 class="h3 mb-5 fw-normal">Добавление документа</h1>
-    
-    <div class="col-md-5 mb-3">
-            <label for="country">Тип документа</label>
-            <select id="select" class="custom-select d-block w-100" >
-              <option value="" selected>Выбрать тип документа...</option>
-              <option value="Паспорт">Паспорт</option>
-              <option value="Кадастровый номер">Кадастровый номер</option>
-              <option value="Номер машины">Номер машины</option>
-              <option value="Номер документа">Номер документа</option>
-            </select>
-        
-          </div>
-
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" name="gos_n" placeholder="Гос номер">
-      <label for="floatingInput">Гос номер</label>
+            <div class="page-header">
+                <h1 class="mb-5">Все услуги:</h1>
+            </div>
+            <?php
+                $yslugi = get_yslugi();
+            ?>
+            <?php foreach($yslugi as $yslug): ?>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal"><?=$yslug['Название']?></h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"><?=$yslug['Стоимость']?><small class="text-muted fw-light"> руб/год</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                        <li><?=$yslug['Описание']?></li>
+                        <p></p>
+                        <li>Условия к документам: <?=$yslug['тип_документа']?></li>
+                        </ul>
+                        <button class="brat w-100 btn btn-lg btn-primary mb-3" type="submit">Взять</button>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+      </div>
+        </div>
+           
     </div>
-    <button class="doki-btn w-100 btn btn-lg btn-primary mb-3" type="submit">Добавить</button>
-    <p class="msg none">Lorem ipsum dolor sit amet.</p>
-  
-    </form>
-  </div>
-  </div>
-  </div>
-  <script src="/js/jquery-3.4.1.min.js"></script>
-  <script src="/js/salvattore.min.js"></script>
-  <script src="/app/doki/doki.js"></script>
-  
-    
+</div>
 
 
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/salvattore.min.js"></script>
+<script src="/app/doki/doki.js"></script>
+
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-12 col-md">
         <img class="mb-2" src="/img/1.jpg" alt="" width="24" height="19">

@@ -76,12 +76,12 @@ if (!empty($error_fields)) {
     die();
 }
 
-if ($password === $password_confirm) {
+if ($password == $password_confirm) {
 
 
     $password = md5($password);
     
-    mysqli_query($link, "INSERT INTO `физ_лица`(`Individuals_ID`, `фамилия`, `имя`, `отчество`, `инн`, `почта`, `телефон`, `адрес`, `пароль`) VALUES (NULL,'$fam','$nam','$och','$ini','$email','$tele','$fiz_ad','$password')");
+    mysqli_query($link, "INSERT INTO физ_лица(id, фамилия, имя, отчество, инн, почта, телефон, адрес, пароль) VALUES (NULL,'$fam','$nam','$och','$ini','$email','$tele','$fiz_ad','$password')");
 
     $response = [
         "status" => true,
