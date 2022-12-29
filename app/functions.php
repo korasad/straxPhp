@@ -48,7 +48,6 @@ function get_ysluga(){
     if ($idd>0)
     {
         $sql = "SELECT * FROM усг_страхов WHERE individual = $idd";
-
         $result = mysqli_query($link,$sql);
         $ysluga = mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $ysluga;
@@ -64,4 +63,58 @@ function get_ysluga(){
     {
         return 0;
     }
+}
+
+//выбранная услуга
+function get_mysluga($aidi){
+    global $link;
+    $sql = "SELECT * FROM все_услуги where Services_ID = '$aidi'";
+    
+    $result = mysqli_query($link,$sql);
+    $mysluga = mysqli_fetch_assoc($result);
+    return $mysluga;
+}
+
+function get_dok($док){
+    global $link;
+    $sql = "SELECT * FROM доки where id_dok = '$док'";
+    
+    $result = mysqli_query($link,$sql);
+    $mysluga = mysqli_fetch_assoc($result);
+    return $mysluga;
+}
+
+
+function get_moiyslugi(){
+    global $link;
+    $idd=$_SESSION['user_fiz']['id'];
+    $id=$_SESSION['user_ur']['id'];
+    if ($idd>0)
+    {
+        $sql = "SELECT * FROM мои_услуги WHERE Ind = $idd";
+        $result = mysqli_query($link,$sql);
+        $ysluga = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        return $ysluga;
+    }
+    if ($id>0)
+    {
+        $sql = "SELECT * FROM мои_услуги WHERE leg = $id";
+        $result = mysqli_query($link,$sql);
+        $ysluga = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        return $ysluga;
+    }
+    else 
+    {
+        return 0;
+    }
+}
+
+
+function get_moe($услуга){
+    global $link;
+    $sql = "SELECT * FROM мои_услуги where id = '$услуга'";
+    
+    $result = mysqli_query($link,$sql);
+    $mysluga = mysqli_fetch_assoc($result);
+    return $mysluga;
 }

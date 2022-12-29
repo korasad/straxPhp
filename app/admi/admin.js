@@ -1,30 +1,22 @@
-$('.doki-btn').click(function (e) {
+$('.loginad-btn').click(function (e) {
     e.preventDefault();
-    
 
     $(`input`).removeClass('error');
-    
-    let doki = $('#select').val(),
-        gos_n = $('input[name="gos_n"]').val();
 
-    let formData = new FormData();
-    formData.append('doki', doki);
-    formData.append('gos_n', gos_n);
-  
-
-
+    let lo = $('input[name="lo"]').val(),
+    pas = $('input[name="pas"]').val();
     $.ajax({
-        url: '/app/doki/dokbd.php',
+        url: '/app/admi/adminin.php',
         type: 'POST',
         dataType: 'json',
-        processData: false,
-        contentType: false,
-        cache: false,
-        data: formData,
+        data: {
+            lo: lo,
+            pas: pas
+        },
         success (data) {
 
             if (data.status) {
-                document.location.href = 'mdoki.php';
+                document.location.href = '/app/admi/add.php';
             } else {
 
                 if (data.type === 1) {
@@ -34,7 +26,6 @@ $('.doki-btn').click(function (e) {
                 }
 
                 $('.msg').removeClass('none').text(data.message);
-
             }
 
         }
@@ -42,21 +33,28 @@ $('.doki-btn').click(function (e) {
 
 });
 
-// Удаление
 
-$('.deli').click(function (e) {
+
+
+
+$('.adm-btn').click(function (e) {
     e.preventDefault();
-    
 
     $(`input`).removeClass('error');
 
-    let tip = $('div.hidden').data('tip'),
-    nom = $('div.hidden').data('nom');
+    let id = $('#select').val(),
+    opis = $('input[name="opis"]').val(),
+    stoim = $('input[name="stoim"]').val();
+
     let formData = new FormData();
-    formData.append('tip', tip);
-    formData.append('nom', nom);
+    formData.append('id', id);
+    formData.append('opis', opis);
+    formData.append('stoim', stoim);
+  
+
+
     $.ajax({
-        url: '/app/doki/del.php',
+        url: '/app/admi/addm.php',
         type: 'POST',
         dataType: 'json',
         processData: false,
@@ -64,17 +62,22 @@ $('.deli').click(function (e) {
         cache: false,
         data: formData,
         success (data) {
+
             if (data.status) {
-                document.location.href = 'mdoki.php';
+                document.location.href = '/app/admi/add.php';
             } else {
+
                 if (data.type === 1) {
                     data.fields.forEach(function (field) {
                         $(`input[name="${field}"]`).addClass('error');
                     });
                 }
+
                 $('.msg').removeClass('none').text(data.message);
 
             }
+
         }
     });
+
 });
