@@ -80,7 +80,7 @@ if ($password == $password_confirm) {
 
 
     $password = md5($password);
-    
+
     mysqli_query($link, "INSERT INTO физ_лица(id, фамилия, имя, отчество, инн, почта, телефон, адрес, пароль) VALUES (NULL,'$fam','$nam','$och','$ini','$email','$tele','$fiz_ad','$password')");
 
     $response = [
@@ -88,8 +88,6 @@ if ($password == $password_confirm) {
         "message" => "Регистрация прошла успешно!",
     ];
     echo json_encode($response);
-
-
 } else {
     $response = [
         "status" => false,
@@ -97,5 +95,3 @@ if ($password == $password_confirm) {
     ];
     echo json_encode($response);
 }
-
-?>
