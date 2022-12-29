@@ -17,7 +17,7 @@ $('.loginur-btn').click(function (e) {
             emai: emai,
             password: password
         },
-        success (data) {
+        success(data) {
 
             if (data.status) {
                 document.location.href = '/index.php';
@@ -49,21 +49,21 @@ $('.registerur-btn').click(function (e) {
     $(`input`).removeClass('error');
 
     let ema = $('input[name="ema"]').val(),
-    pass = $('input[name="pass"]').val(),
+        pass = $('input[name="pass"]').val(),
         organiz = $('input[name="organiz"]').val(),
         tel = $('input[name="tel"]').val(),
         inn = $('input[name="inn"]').val(),
         ur_ad = $('input[name="ur_ad"]').val(),
         password_conf = $('input[name="password_conf"]').val();
 
-        let formData = new FormData();
-        formData.append('ema', ema);
-        formData.append('pass', pass);
-        formData.append('password_conf', password_conf);
-        formData.append('organiz', organiz);
-        formData.append('tel', tel);
-        formData.append('inn', inn);
-        formData.append('ur_ad', ur_ad);
+    let formData = new FormData();
+    formData.append('ema', ema);
+    formData.append('pass', pass);
+    formData.append('password_conf', password_conf);
+    formData.append('organiz', organiz);
+    formData.append('tel', tel);
+    formData.append('inn', inn);
+    formData.append('ur_ad', ur_ad);
 
 
     $.ajax({
@@ -74,7 +74,7 @@ $('.registerur-btn').click(function (e) {
         contentType: false,
         cache: false,
         data: formData,
-        success (data) {
+        success(data) {
             console.log(data);
 
             if (data.status) {

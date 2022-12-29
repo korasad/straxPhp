@@ -29,9 +29,7 @@ require 'app/header.php';
                                 <p></p>
                                 <li>Условия к документам: <?= $yslug['тип_документа'] ?></li>
                             </ul>
-                            <?php if ($_SESSION['user_fiz']['id'] != null or $_SESSION['user_ur']['id'] != null) : ?>
-                                <p><a class="w-10 btn btn-lg btn-primary mb-3" href="/app/yslug/mslugi.php?aidi=<?= $yslug['Services_ID'] ?>">Взять</a></p>
-                            <?php endif ?>
+                            <button class="brat w-100 btn btn-lg btn-primary mb-3" type="submit">Взять</button>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -41,7 +39,5 @@ require 'app/header.php';
     </div>
 </div>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
-<script src="/js/salvattore.min.js"></script>
 
 <?php require 'app/footer.php'; ?>

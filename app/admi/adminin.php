@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once '../../include/database.php';
+require_once '../include/database.php';
 
 $lo = $_POST['lo'];
 $pas = $_POST['pas'];
@@ -30,23 +30,12 @@ if (!empty($error_fields)) {
 }
 
 $pas = md5($pas);
-
-$check_us = mysqli_query($link, "SELECT * FROM `физ_лица` WHERE `почта` = '$lo' AND `пароль` = '$pas'");
+$сикуад = "SELECT * FROM админ WHERE `email` = '$lo' AND `пароль` = '$pas'";
+$check_us = mysqli_query($link, $сикуад);
 if (mysqli_num_rows($check_us) > 0) {
 
-    $user = mysqli_fetch_assoc($check_us);
-
-    $_SESSION['user_fiz'] = [
-        "id" => $user['id'],
-        "fam" => $user['фамилия'],
-        "nam" => $user['имя'],
-        "och" => $user['отчество'],
-        "ini" => $user['инн'],
-        "email" => $user['почта'],
-        "tele" => $user['телефон'],
-        "fiz_ad" => $user['адрес']
-    ];
-
+    
+    $_SESSION['access'] = TRUE;
     $response = [
         "status" => true
     ];

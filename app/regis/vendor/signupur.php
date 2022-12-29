@@ -42,9 +42,8 @@ if ($ema === '') {
     $error_fields[] = 'ema';
 }
 
-if (!filter_var($ema, FILTER_VALIDATE_EMAIL))
-{
-    
+if (!filter_var($ema, FILTER_VALIDATE_EMAIL)) {
+
     $error_fields[] = 'email';
 }
 
@@ -76,8 +75,8 @@ if ($pass === $password_conf) {
 
 
     $pass = md5($pass);
-    
-    
+
+
 
 
     mysqli_query($link, "INSERT INTO `юр_лица`(`id `, `название`, `инн`, `юр_адресс`, `телефон`, `email`, `пароль`) VALUES (NULL,'$organiz','$inn','$ur_ad','$tel','$ema','$pass')");
@@ -87,8 +86,6 @@ if ($pass === $password_conf) {
         "message" => "Регистрация прошла успешно!",
     ];
     echo json_encode($response);
-
-
 } else {
     $response = [
         "status" => false,
@@ -96,5 +93,3 @@ if ($pass === $password_conf) {
     ];
     echo json_encode($response);
 }
-
-?>
